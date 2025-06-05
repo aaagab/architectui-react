@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0] - 2025-06-05
+
+### Changed
+
+- Migrated to Vite.js with TypeScript.
+- Upgraded react-router-dom to v7.
+
+### Fixed
+
+- Fixed SCSS bugs.
+
+
 ## [3.0.0] - 2023-11-20
 
 ### Changed

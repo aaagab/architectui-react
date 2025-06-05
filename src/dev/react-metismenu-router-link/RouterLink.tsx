@@ -50,6 +50,12 @@ function MyRouterLink({
                 if (a?.tagName === "A" && a.classList.contains("metismenu-link")) {
                     a.classList.add(classNameHasActiveChild);
                 }
+                var ul = root.lastElementChild;
+                if (ul?.tagName === "UL" && ul.classList.contains("metismenu-container")) {
+                    if (ul.classList.contains("visible") === false) {
+                        ul.classList.add("visible");
+                    }
+                }
             }
         }
 
