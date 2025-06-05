@@ -1,5 +1,8 @@
 # ArchitectUI Bootstrap 5 ReactJS Theme FREE
 
+[Initial Project](https://github.com/DashboardPack/architectui-react-theme-free)  
+Ported by `gabaaa` to Vite.js with TypeScript.  
+
 ArchitectUI ReactJS is a free admin dashboard template based on Bootstrap and React frontend framework. It is easy to install, customiza and use. We have this template available in [Vue](https://dashboardpack.com/theme-details/architectui-dashboard-vue-pro/), [jQuery/HTML](https://dashboardpack.com/theme-details/architectui-dashboard-html-pro), [Angular](https://dashboardpack.com/theme-details/architectui-angular-7-bootstrap-material-design-pro?v=7516fd43adaa) and other version. For more awesome admin panels please check DashboardPack.com
 
 ### Made with love by DashboardPack.com
@@ -23,7 +26,7 @@ npm install
 After npm finishes installing the modules from package.json you can go ahead and start the application. To do so, run the command below.
 
 ```bash
-npm run start
+npm run dev
 ```
 
 After the command finished, you should see a Compiled successfully! message in your terminal window. Also, a web server service will be started so you can view your app in the browser: http://localhost:3000
