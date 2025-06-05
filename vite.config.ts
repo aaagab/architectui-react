@@ -10,7 +10,6 @@ export default defineConfig({
     },
     resolve: {
         alias: [
-            // { find: "url", replacement: path.resolve(__dirname, 'url') },
             { find: '@assets', replacement: path.resolve(__dirname, './src/assets') },
             { find: "assert", replacement: path.resolve(__dirname, 'node_modules/assert') },
             { find: "crypto", replacement: path.resolve(__dirname, 'node_modules/crypto-browserify') },
