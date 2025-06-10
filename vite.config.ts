@@ -8,21 +8,16 @@ const __dirname = path.dirname(__filename);
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
     // https://vite.dev/config/shared-options
-    // base: "/spa/",
 
-    // console.log(mode)
-    // console.log(process.env)
-    var env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-    console.log(env.PUBLIC_URL);
-
-
+    var env = { ...process.env, ...loadEnv(mode, process.cwd(), '') };
     return {
+        base: env.VITE_PUBLIC_URL,
         define: {
             global: 'window',
             process: {
                 env: env,
                 version: '9.9.9',
-            }
+            },
         },
         resolve: {
             alias: [

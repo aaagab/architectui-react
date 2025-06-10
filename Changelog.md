@@ -2,7 +2,7 @@
 
 ## [4.1.0] - 2025-06-09
 
-- Enabled StrictMode and fixed most of the console warnings.
+- Enabled StrictMode and fixed most of the browser console warnings.
 - Some nodes modules have been embedded into the sources and refactored to fix StrictMode warning:
   - react-metismenu
   - react-metismenu-router-link (now working with react-router-dom v7)
@@ -18,6 +18,35 @@
   - https-browserify
   - buffer
   - stream-browserify
+- Removed unused packages:
+  - slick-carousel
+  - jquery
+  - @fortawesome/fontawesome-free
+  - @types/markerclustererplus
+  - aphrodite
+  - chartist
+  - chroma-js
+  - date-arithmetic
+  - globalize
+  - hamburgers
+  - install
+  - react-animations
+  - react-anime
+  - react-compound-slider
+  - react-dnd
+  - react-dnd-html5-backend
+  - react-image-crop
+  - react-map-gl
+  - react-on-screen
+  - react-paginate
+  - react-popper
+  - react-scroll
+  - react-sizeme
+  - react-table
+  - react-validation
+  - redux-logger
+  - redux-thunk
+  - validator
 
 ## [4.0.0] - 2025-06-05
 
