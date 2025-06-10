@@ -1,5 +1,8 @@
 # Changelog
 
+## [4.1.1] - 2025-06-10
+- fixed version in package.json
+
 ## [4.1.0] - 2025-06-09
 
 - Enabled StrictMode and fixed most of the browser console warnings.
