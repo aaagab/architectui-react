@@ -5,14 +5,14 @@ import { ToastContainer } from "react-toastify";
 import { useDashboardsRoutes } from "../../DemoPages/Dashboards";
 
 
-import { useElementsRoutes } from "../../DemoPages/Elements";
-import { useComponentsRoutes } from "../../DemoPages/Components";
-import { useTablesRoutes } from "../../DemoPages/Tables";
-import { useFormsRoutes } from "../../DemoPages/Forms";
-import { useChartsRoutes } from "../../DemoPages/Charts";
-import { useDashboardWidgetsRoutes } from "../../DemoPages/Widgets";
-import usePagesRoutes from "../../DemoPages/UserPages";
-import { useApplicationsRoutes } from "../../DemoPages/Applications";
+import { ElementsRoutes } from "../../DemoPages/Elements";
+import { ComponentsRoutes } from "../../DemoPages/Components";
+import { TablesRoutes } from "../../DemoPages/Tables";
+import { FormsRoutes } from "../../DemoPages/Forms";
+import { ChartsRoutes } from "../../DemoPages/Charts";
+import { DashboardWidgetsRoutes } from "../../DemoPages/Widgets";
+import PagesRoutes from "../../DemoPages/UserPages";
+import { ApplicationsRoutes } from "../../DemoPages/Applications";
 
 const AppMain = () => {
     return (
@@ -21,14 +21,14 @@ const AppMain = () => {
                 <Route path="/" element={<DemoLayout />}>
                     <Route index element={<Navigate to="dashboards/crm" />} />
                     {useDashboardsRoutes()}
-                    {useElementsRoutes()}
-                    {useComponentsRoutes()}
-                    {useTablesRoutes()}
-                    {useFormsRoutes()}
-                    {useChartsRoutes()}
-                    {useDashboardWidgetsRoutes()}
-                    {usePagesRoutes()}
-                    {useApplicationsRoutes()}
+                    {ElementsRoutes()}
+                    {ComponentsRoutes()}
+                    {TablesRoutes()}
+                    {FormsRoutes()}
+                    {ChartsRoutes()}
+                    {DashboardWidgetsRoutes()}
+                    {PagesRoutes()}
+                    {ApplicationsRoutes()}
                 </Route>
             </Routes>
             <ToastContainer />

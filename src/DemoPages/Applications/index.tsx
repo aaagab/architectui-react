@@ -7,7 +7,7 @@ const Mailbox = lazy(() => import("./Mailbox"));
 const Chat = lazy(() => import("./Chat"));
 const FaqSection = lazy(() => import("./FaqSection"));
 
-export const useApplicationsRoutes = () => (
+export const ApplicationsRoutes = () => (
   <Route path="applications" element={<CustomSuspense text="Applications" />}>
     <Route path="mailbox" element={<Mailbox />} />
     <Route path="chat" element={<Chat />} />

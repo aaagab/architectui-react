@@ -1,42 +1,28 @@
-import React, { Fragment } from "react";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
-
-import {
-  Sparklines,
-  SparklinesBars,
-  SparklinesLine,
-  SparklinesCurve,
-  SparklinesReferenceLine,
-  SparklinesSpots,
-} from "react-sparklines";
-
+import { Sparklines, SparklinesBars, SparklinesLine, SparklinesCurve, SparklinesReferenceLine, SparklinesSpots } from "react-sparklines";
 function boxMullerRandom() {
-  let phase = true,
-    x1,
-    x2,
-    w;
-
-  return (function() {
-    if (phase) {
-      do {
-        x1 = 2.0 * Math.random() - 1.0;
-        x2 = 2.0 * Math.random() - 1.0;
-        w = x1 * x1 + x2 * x2;
-      } while (w >= 1.0);
-
-      w = Math.sqrt((-2.0 * Math.log(w)) / w);
-      return x1 * w;
-    } else {
-      return x2 * w;
-    }
-  })();
+    let phase = true, x1, x2, w;
+    return (function () {
+        if (phase) {
+            do {
+                x1 = 2.0 * Math.random() - 1.0;
+                x2 = 2.0 * Math.random() - 1.0;
+                w = x1 * x1 + x2 * x2;
+            } while (w >= 1.0);
+            w = Math.sqrt((-2.0 * Math.log(w)) / w);
+            return x1 * w;
+        }
+        else {
+            return x2 * w;
+        }
+    })();
 }
-
 function randomData(n = 30) {
-  return Array.apply(0, Array(n)).map(boxMullerRandom);
+    return Array.apply(0, Array(n)).map(boxMullerRandom);
 }
-
 const sampleData = randomData(30);
 const sampleData1 = randomData(39);
 const sampleData2 = randomData(19);
@@ -46,413 +32,97 @@ const sampleData5 = randomData(17);
 const sampleData6 = randomData(24);
 const sampleData7 = randomData(35);
 const sampleData100 = randomData(100);
-
-class ChartsSparklines1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-    setInterval(
-      () =>
-        this.setState({
-          data: this.state.data.concat([boxMullerRandom()]),
-        }),
-      200
-    );
-  }
-  componeDidMount() {
-    clearInterval(this.timeout);
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <TransitionGroup>
-          <CSSTransition component="div" classNames="TabsAnimation" appear={true}
-            timeout={1500} enter={false} exit={false}>
-            <Row>
-              <Col md="3">
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Simple</CardTitle>
-                    <Sparklines height={90} data={sampleData}>
-                      <SparklinesLine />
-                    </Sparklines>
-                  </CardBody>
-                </Card>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Simple curved</CardTitle>
-                    <Sparklines height={90} data={sampleData1}>
-                      <SparklinesCurve />
-                    </Sparklines>
-                  </CardBody>
-                </Card>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Dynamic Sparklines</CardTitle>
-                    <div className="mb-2">
-                      <Sparklines data={this.state.data} limit={20}>
-                        <SparklinesLine color="#1c8cdc" />
-                        <SparklinesSpots />
-                      </Sparklines>
-                    </div>
-                    <div className="mb-2">
-                      <Sparklines data={this.state.data} limit={20}>
-                        <SparklinesBars
-                          style={{
-                            fill: "#41c3f9",
-                            fillOpacity: ".25",
-                          }}/>
-                        <SparklinesLine
-                          style={{
-                            stroke: "#41c3f9",
-                            fill: "none",
-                          }}/>
-                      </Sparklines>
-                    </div>
-                    <div className="mb-2">
-                      <Sparklines data={this.state.data} limit={20}>
-                        <SparklinesLine
-                          style={{
-                            stroke: "none",
-                            fill: "#8e44af",
-                            fillOpacity: "1",
-                          }}/>
-                      </Sparklines>
-                    </div>
-                    <Sparklines data={this.state.data} limit={10}>
-                      <SparklinesBars color="#0a83d8" />
-                    </Sparklines>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Normal Band</CardTitle>
-                    <Row>
-                      <Col md="6">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesLine
-                            height="30"
-                            style={{
-                              fill: "none",
-                            }}/>
-                        </Sparklines>
-                      </Col>
-                      <Col md="6">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesLine
-                            height="30"
-                            style={{
-                              fill: "none",
-                            }}/>
-                          <SparklinesReferenceLine height="30" type="mean" />
-                        </Sparklines>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Customizable</CardTitle>
-                    <Row>
-                      <Col md="4">
-                        <div className="mb-2">
-                          <Sparklines height={90} data={sampleData2}>
-                            <SparklinesLine color="#1c8cdc" />
-                          </Sparklines>
-                        </div>
-                        <Sparklines height={90} data={sampleData3}>
-                          <SparklinesLine color="#fa7e17" />
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <div className="mb-2">
-                          <Sparklines height={90} data={sampleData4}>
-                            <SparklinesLine color="#ea485c" />
-                          </Sparklines>
-                        </div>
-                        <Sparklines height={90} data={sampleData5}>
-                          <SparklinesLine color="#56b45d" />
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <div className="mb-2">
-                          <Sparklines height={90} data={sampleData6}>
-                            <SparklinesLine color="#253e56" />
-                          </Sparklines>
-                        </div>
-                        <Sparklines height={90} data={sampleData7}>
-                          <SparklinesLine color="#8e44af" />
-                        </Sparklines>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Spots</CardTitle>
-                    <Row>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesLine
-                            style={{
-                              fill: "none",
-                            }}/>
-                          <SparklinesSpots />
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesLine color="#56b45d" />
-                          <SparklinesSpots
-                            style={{
-                              fill: "#56b45d",
-                            }}/>
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData} margin={6}>
-                          <SparklinesLine
-                            style={{
-                              strokeWidth: 3,
-                              stroke: "#336aff",
-                              fill: "none",
-                            }}/>
-                          <SparklinesSpots
-                            size={4}
-                            style={{
-                              stroke: "#336aff",
-                              strokeWidth: 3,
-                              fill: "white",
-                            }}/>
-                        </Sparklines>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Bars &amp; Bounds</CardTitle>
-                    <Row>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData} max={0.5}>
-                          <SparklinesLine />
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesBars
-                            style={{
-                              fill: "#41c3f9",
-                            }}/>
-                        </Sparklines>
-                      </Col>
-                      <Col md="4">
-                        <Sparklines height={90} data={sampleData}>
-                          <SparklinesBars
-                            style={{
-                              stroke: "white",
-                              fill: "#41c3f9",
-                              fillOpacity: ".25",
-                            }}/>
-                          <SparklinesLine
-                            style={{
-                              stroke: "#41c3f9",
-                              fill: "none",
-                            }}/>
-                        </Sparklines>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col>
-
-              <Col md="3">
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Reference Line</CardTitle>
-                    <div className="mb-4">
-                      <Sparklines height={90} data={sampleData}>
-                        <SparklinesLine />
-                        <SparklinesReferenceLine type="max" />
-                      </Sparklines>
-                    </div>
-                    <div className="mb-4">
-                      <Sparklines height={90} data={sampleData}>
-                        <SparklinesLine />
-                        <SparklinesReferenceLine type="min" />
-                      </Sparklines>
-                    </div>
-                    <div className="mb-4">
-                      <Sparklines height={90} data={sampleData}>
-                        <SparklinesLine />
-                        <SparklinesReferenceLine type="mean" />
-                      </Sparklines>
-                    </div>
-                    <div className="mb-4">
-                      <Sparklines height={90} data={sampleData}>
-                        <SparklinesLine />
-                        <SparklinesReferenceLine type="avg" />
-                      </Sparklines>
-                    </div>
-                    <div className="mb-4">
-                      <Sparklines height={90} data={sampleData}>
-                        <SparklinesLine />
-                        <SparklinesReferenceLine type="median" />
-                      </Sparklines>
-                    </div>
-                    <Sparklines height={90} data={sampleData}>
-                      <SparklinesBars
-                        style={{
-                          fill: "slategray",
-                          fillOpacity: ".5",
-                        }}/>
-                      <SparklinesReferenceLine />
-                    </Sparklines>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="12">
-                <Card className="main-card mb-3">
-                  <CardBody>
-                    <CardTitle>Other Examples</CardTitle>
-                    <Row>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}>
-                            <SparklinesLine
-                              style={{
-                                strokeWidth: 3,
-                                stroke: "#336aff",
-                                fill: "none",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData100} width={200}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "#2991c8",
-                                fill: "none",
-                              }}/>
-                            <SparklinesSpots />
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData100}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "black",
-                                fill: "none",
-                              }}/>
-                            <SparklinesSpots
-                              style={{
-                                fill: "orange",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}>
-                            <SparklinesBars
-                              style={{
-                                stroke: "white",
-                                strokeWidth: "1",
-                                fill: "#40c0f5",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "#8ed53f",
-                                strokeWidth: "1",
-                                fill: "none",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "#d1192e",
-                                strokeWidth: "1",
-                                fill: "none",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "#559500",
-                                fill: "#8fc638",
-                                fillOpacity: "1",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-3">
-                          <Sparklines height={90} data={sampleData}
-                            style={{
-                              background: "#272727",
-                            }}
-                            margin={10}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "none",
-                                fill: "#d2673a",
-                                fillOpacity: ".5",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                      <Col md="3">
-                        <div className="mb-1">
-                          <Sparklines height={90} data={sampleData}
-                            style={{
-                              background: "#00bdcc",
-                            }}
-                            margin={10}>
-                            <SparklinesLine
-                              style={{
-                                stroke: "white",
-                                fill: "none",
-                              }}/>
-                            <SparklinesReferenceLine
-                              style={{
-                                stroke: "white",
-                                strokeOpacity: 0.75,
-                                strokeDasharray: "2, 2",
-                              }}/>
-                          </Sparklines>
-                        </div>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
-          </CSSTransition>
-        </TransitionGroup>
-      </Fragment>
-    );
-  }
-}
-
+const ChartsSparklines1 = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setData(data.concat([boxMullerRandom()]));
+        }, 200);
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [data]);
+    return (_jsx(Fragment, { children: _jsx(TransitionGroup, { children: _jsx(CSSTransition, { nodeRef: useRef(), component: "div", classNames: "TabsAnimation", appear: true, timeout: 1500, enter: false, exit: false, children: _jsxs(Row, { children: [_jsxs(Col, { md: "3", children: [_jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Simple" }), _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, {}) })] }) }), _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Simple curved" }), _jsx(Sparklines, { height: 90, data: sampleData1, children: _jsx(SparklinesCurve, {}) })] }) }), _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Dynamic Sparklines" }), _jsx("div", { className: "mb-2", children: _jsxs(Sparklines, { data: data, limit: 20, children: [_jsx(SparklinesLine, { color: "#1c8cdc" }), _jsx(SparklinesSpots, {})] }) }), _jsx("div", { className: "mb-2", children: _jsxs(Sparklines, { data: data, limit: 20, children: [_jsx(SparklinesBars, { style: {
+                                                                fill: "#41c3f9",
+                                                                fillOpacity: ".25",
+                                                            } }), _jsx(SparklinesLine, { style: {
+                                                                stroke: "#41c3f9",
+                                                                fill: "none",
+                                                            } })] }) }), _jsx("div", { className: "mb-2", children: _jsx(Sparklines, { data: data, limit: 20, children: _jsx(SparklinesLine, { style: {
+                                                            stroke: "none",
+                                                            fill: "#8e44af",
+                                                            fillOpacity: "1",
+                                                        } }) }) }), _jsx(Sparklines, { data: data, limit: 10, children: _jsx(SparklinesBars, { color: "#0a83d8" }) })] }) })] }), _jsxs(Col, { md: "6", children: [_jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Normal Band" }), _jsxs(Row, { children: [_jsx(Col, { md: "6", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, { height: "30", style: {
+                                                                    fill: "none",
+                                                                } }) }) }), _jsx(Col, { md: "6", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, { height: "30", style: {
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesReferenceLine, { height: "30", type: "mean" })] }) })] })] }) }), _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Customizable" }), _jsxs(Row, { children: [_jsxs(Col, { md: "4", children: [_jsx("div", { className: "mb-2", children: _jsx(Sparklines, { height: 90, data: sampleData2, children: _jsx(SparklinesLine, { color: "#1c8cdc" }) }) }), _jsx(Sparklines, { height: 90, data: sampleData3, children: _jsx(SparklinesLine, { color: "#fa7e17" }) })] }), _jsxs(Col, { md: "4", children: [_jsx("div", { className: "mb-2", children: _jsx(Sparklines, { height: 90, data: sampleData4, children: _jsx(SparklinesLine, { color: "#ea485c" }) }) }), _jsx(Sparklines, { height: 90, data: sampleData5, children: _jsx(SparklinesLine, { color: "#56b45d" }) })] }), _jsxs(Col, { md: "4", children: [_jsx("div", { className: "mb-2", children: _jsx(Sparklines, { height: 90, data: sampleData6, children: _jsx(SparklinesLine, { color: "#253e56" }) }) }), _jsx(Sparklines, { height: 90, data: sampleData7, children: _jsx(SparklinesLine, { color: "#8e44af" }) })] })] })] }) }), _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Spots" }), _jsxs(Row, { children: [_jsx(Col, { md: "4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, { style: {
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesSpots, {})] }) }), _jsx(Col, { md: "4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, { color: "#56b45d" }), _jsx(SparklinesSpots, { style: {
+                                                                        fill: "#56b45d",
+                                                                    } })] }) }), _jsx(Col, { md: "4", children: _jsxs(Sparklines, { height: 90, data: sampleData, margin: 6, children: [_jsx(SparklinesLine, { style: {
+                                                                        strokeWidth: 3,
+                                                                        stroke: "#336aff",
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesSpots, { size: 4, style: {
+                                                                        stroke: "#336aff",
+                                                                        strokeWidth: 3,
+                                                                        fill: "white",
+                                                                    } })] }) })] })] }) }), _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Bars & Bounds" }), _jsxs(Row, { children: [_jsx(Col, { md: "4", children: _jsx(Sparklines, { height: 90, data: sampleData, max: 0.5, children: _jsx(SparklinesLine, {}) }) }), _jsx(Col, { md: "4", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesBars, { style: {
+                                                                    fill: "#41c3f9",
+                                                                } }) }) }), _jsx(Col, { md: "4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesBars, { style: {
+                                                                        stroke: "white",
+                                                                        fill: "#41c3f9",
+                                                                        fillOpacity: ".25",
+                                                                    } }), _jsx(SparklinesLine, { style: {
+                                                                        stroke: "#41c3f9",
+                                                                        fill: "none",
+                                                                    } })] }) })] })] }) })] }), _jsx(Col, { md: "3", children: _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Reference Line" }), _jsx("div", { className: "mb-4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, {}), _jsx(SparklinesReferenceLine, { type: "max" })] }) }), _jsx("div", { className: "mb-4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, {}), _jsx(SparklinesReferenceLine, { type: "min" })] }) }), _jsx("div", { className: "mb-4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, {}), _jsx(SparklinesReferenceLine, { type: "mean" })] }) }), _jsx("div", { className: "mb-4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, {}), _jsx(SparklinesReferenceLine, { type: "avg" })] }) }), _jsx("div", { className: "mb-4", children: _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesLine, {}), _jsx(SparklinesReferenceLine, { type: "median" })] }) }), _jsxs(Sparklines, { height: 90, data: sampleData, children: [_jsx(SparklinesBars, { style: {
+                                                        fill: "slategray",
+                                                        fillOpacity: ".5",
+                                                    } }), _jsx(SparklinesReferenceLine, {})] })] }) }) }), _jsx(Col, { md: "12", children: _jsx(Card, { className: "main-card mb-3", children: _jsxs(CardBody, { children: [_jsx(CardTitle, { children: "Other Examples" }), _jsxs(Row, { children: [_jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, { style: {
+                                                                    strokeWidth: 3,
+                                                                    stroke: "#336aff",
+                                                                    fill: "none",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsxs(Sparklines, { height: 90, data: sampleData100, width: 200, children: [_jsx(SparklinesLine, { style: {
+                                                                        stroke: "#2991c8",
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesSpots, {})] }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsxs(Sparklines, { height: 90, data: sampleData100, children: [_jsx(SparklinesLine, { style: {
+                                                                        stroke: "black",
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesSpots, { style: {
+                                                                        fill: "orange",
+                                                                    } })] }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesBars, { style: {
+                                                                    stroke: "white",
+                                                                    strokeWidth: "1",
+                                                                    fill: "#40c0f5",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, { style: {
+                                                                    stroke: "#8ed53f",
+                                                                    strokeWidth: "1",
+                                                                    fill: "none",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, { style: {
+                                                                    stroke: "#d1192e",
+                                                                    strokeWidth: "1",
+                                                                    fill: "none",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, children: _jsx(SparklinesLine, { style: {
+                                                                    stroke: "#559500",
+                                                                    fill: "#8fc638",
+                                                                    fillOpacity: "1",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-3", children: _jsx(Sparklines, { height: 90, data: sampleData, style: {
+                                                                background: "#272727",
+                                                            }, margin: 10, children: _jsx(SparklinesLine, { style: {
+                                                                    stroke: "none",
+                                                                    fill: "#d2673a",
+                                                                    fillOpacity: ".5",
+                                                                } }) }) }) }), _jsx(Col, { md: "3", children: _jsx("div", { className: "mb-1", children: _jsxs(Sparklines, { height: 90, data: sampleData, style: {
+                                                                background: "#00bdcc",
+                                                            }, margin: 10, children: [_jsx(SparklinesLine, { style: {
+                                                                        stroke: "white",
+                                                                        fill: "none",
+                                                                    } }), _jsx(SparklinesReferenceLine, { style: {
+                                                                        stroke: "white",
+                                                                        strokeOpacity: 0.75,
+                                                                        strokeDasharray: "2, 2",
+                                                                    } })] }) }) })] })] }) }) })] }) }) }) }));
+};
 export default ChartsSparklines1;

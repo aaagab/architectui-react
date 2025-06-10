@@ -16,7 +16,7 @@ const WidgetsChartBoxes2 = lazy(() => import("./ChartBoxes2/"));
 const WidgetsChartBoxes3 = lazy(() => import("./ChartBoxes3/"));
 const WidgetsContentBoxes = lazy(() => import("./ContentBoxes/"));
 
-export const useDashboardWidgetsRoutes = () => (
+export const DashboardWidgetsRoutes = () => (
   <Route path="widgets" element={<CustomSuspense text="Dashboard Widgets" />}>
     <Route path="chart-boxes" element={<WidgetsChartBoxes />} />
     <Route path="chart-boxes-2" element={<WidgetsChartBoxes2 />} />

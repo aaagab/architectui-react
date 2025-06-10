@@ -1,11 +1,31 @@
 # Changelog
 
+## [4.1.0] - 2025-06-09
+
+- Enabled StrictMode and fixed most of the console warnings.
+- Some nodes modules have been embedded into the sources and refactored to fix StrictMode warning:
+  - react-metismenu
+  - react-metismenu-router-link (now working with react-router-dom v7)
+  - react-input-mask
+  - react-sticky-el
+  - react-visibility-sensor
+  - reactstrap (partially embedded)
+- Refactored multiple components.
+- replaced following packages with vite-plugin-node-polyfills:
+  - assert
+  - crypto-browserify
+  - stream-http
+  - https-browserify
+  - buffer
+  - stream-browserify
+
 ## [4.0.0] - 2025-06-05
 
 ### Changed
 
 - Migrated to Vite.js with TypeScript.
 - Upgraded react-router-dom to v7.
+- Switched from HashRouter to BrowserRouter
 
 ### Fixed
 

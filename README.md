@@ -29,7 +29,7 @@ After npm finishes installing the modules from package.json you can go ahead and
 npm run dev
 ```
 
-After the command finished, you should see a Compiled successfully! message in your terminal window. Also, a web server service will be started so you can view your app in the browser: http://localhost:3000
+After the command finished, you should see a Compiled successfully! message in your terminal window. Also, a web server service will be started so you can view your app in the browser: http://localhost:5173
 
 To create a production optimized build run the command below:
 
@@ -40,7 +40,7 @@ npm run build
 This created another folder in the root of your project named build. You'll have an option to start a local web server to view your newly created production build.
 
 ```bash
-npx serve -s build -l 4000
+npm run preview
 ```
 
-This will start a local web server on port 4000, on which the production folder (/build/) will be available in your browser.
+This will start a local web server on port 4173, on which the production folder (/dist/) will be available in your browser.

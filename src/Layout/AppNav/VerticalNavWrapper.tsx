@@ -1,10 +1,9 @@
-import withRouter from "../../dev/withRouter.tsx";
 import RouterLink from "../../dev/react-metismenu-router-link/RouterLink.tsx";
 
-import MetisMenu from "react-metismenu";
+// import OrMetisMenu from "react-metismenu";
+import MetisMenu from "../../dev/react-metismenu"
 
 import {
-    UpgradeNav,
     MainNav,
     ComponentsNav,
     FormsNav,
@@ -17,15 +16,6 @@ import {
 export function Nav() {
 
     return (<>
-        <h5 className="app-sidebar__heading">Pro Version</h5>
-        <MetisMenu
-            content={UpgradeNav}
-            LinkComponent={RouterLink}
-            className="vertical-nav-menu"
-            iconNamePrefix=""
-            classNameStateIcon="pe-7s-angle-down"
-        />
-
         <h5 className="app-sidebar__heading">Menu</h5>
         <MetisMenu
             content={MainNav}
@@ -89,5 +79,3 @@ export function Nav() {
     </>
     );
 }
-
-// export default withRouter(Nav);

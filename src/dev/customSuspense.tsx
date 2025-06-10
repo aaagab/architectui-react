@@ -1,12 +1,14 @@
 import { Suspense } from "react";
 import Loader from "react-loaders";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const CustomSuspense = ({ text }: { text: string }) => {
+    const location = useLocation();
     return (
         <>
 
             <Suspense
+                key={location.key}
                 fallback={
                     <div className="custom-loader-container">
                         <div className="loader-container-inner">

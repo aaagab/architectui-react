@@ -1,14 +1,10 @@
 import React, { Fragment } from "react";
 
-import {
-    ComposableMap,
-    Geographies,
-    Geography,
-    Marker,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
-const geoUrl =
-    "https://github.com/zcreativelabs/react-simple-maps/blob/v2.2.0/topojson-maps/world-110m.json";
+// const geoUrl =
+// "https://github.com/zcreativelabs/react-simple-maps/blob/v2.2.0/topojson-maps/world-110m.json";
+import geoUrl from "../world-110m.json";
 
 export default class VectorMapsMarkers extends React.Component {
     render() {
@@ -21,16 +17,7 @@ export default class VectorMapsMarkers extends React.Component {
                     }}
                 >
                     <Geographies geography={geoUrl}>
-                        {({ geographies }) =>
-                            geographies.map((geo) => (
-                                <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    fill="#DDD"
-                                    stroke="#FFF"
-                                />
-                            ))
-                        }
+                        {({ geographies }) => geographies.map((geo) => <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />)}
                     </Geographies>
                     <Marker coordinates={[-101, 53]} fill="#777">
                         <text textAnchor="middle" fill="#F53">

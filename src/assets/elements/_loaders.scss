@@ -1,5 +1,3 @@
-/* NOTE: loaders.css/ is loaded from node_modules/ using sass-loader */
-
 $primary-color: $primary !default;
 $ball-size: 15px !default;
 $margin: 2px !default;
@@ -37,40 +35,41 @@ $line-width: 4px !default;
 /**
  * Dots
  */
-@import 'loaders.css/src/animations/ball-pulse';
-@import 'loaders.css/src/animations/ball-pulse-sync';
-@import 'loaders.css/src/animations/ball-scale';
-@import 'loaders.css/src/animations/ball-rotate';
-@import 'loaders.css/src/animations/ball-clip-rotate';
-@import 'loaders.css/src/animations/ball-clip-rotate-pulse';
-@import 'loaders.css/src/animations/ball-clip-rotate-multiple';
-@import 'loaders.css/src/animations/ball-scale-ripple';
-@import 'loaders.css/src/animations/ball-scale-ripple-multiple';
-@import 'loaders.css/src/animations/ball-beat';
-@import 'loaders.css/src/animations/ball-scale-multiple';
-@import 'loaders.css/src/animations/ball-triangle-trace';
-@import 'loaders.css/src/animations/ball-pulse-rise';
-@import 'loaders.css/src/animations/ball-grid-beat';
-@import 'loaders.css/src/animations/ball-grid-pulse';
-@import 'loaders.css/src/animations/ball-spin-fade-loader';
-@import 'loaders.css/src/animations/ball-spin-loader';
-@import 'loaders.css/src/animations/ball-zig-zag';
-@import 'loaders.css/src/animations/ball-zig-zag-deflect';
+@import '@src/dev/loader-css/animations/ball-pulse.scss';
+@import '@src/dev/loader-css/animations/ball-pulse-sync.scss';
+@import '@src/dev/loader-css/animations/ball-scale.scss';
+@import '@src/dev/loader-css/animations/ball-rotate.scss';
+@import '@src/dev/loader-css/animations/ball-clip-rotate.scss';
+@import '@src/dev/loader-css/animations/ball-clip-rotate-pulse.scss';
+@import '@src/dev/loader-css/animations/ball-clip-rotate-multiple.scss';
+@import '@src/dev/loader-css/animations/ball-scale-ripple.scss';
+@import '@src/dev/loader-css/animations/ball-scale-ripple-multiple.scss';
+@import '@src/dev/loader-css/animations/ball-beat.scss';
+@import '@src/dev/loader-css/animations/ball-scale-multiple.scss';
+@import '@src/dev/loader-css/animations/ball-triangle-trace.scss';
+@import '@src/dev/loader-css/animations/ball-pulse-rise.scss';
+@import '@src/dev/loader-css/animations/ball-grid-beat.scss';
+@import '@src/dev/loader-css/animations/ball-grid-pulse.scss';
+@import '@src/dev/loader-css/animations/ball-spin-fade-loader.scss';
+@import '@src/dev/loader-css/animations/ball-spin-loader.scss';
+@import '@src/dev/loader-css/animations/ball-zig-zag.scss';
+@import '@src/dev/loader-css/animations/ball-zig-zag-deflect.scss';
 
 /**
  * Lines
  */
-@import 'loaders.css/src/animations/line-scale';
-@import 'loaders.css/src/animations/line-scale-random';
-@import 'loaders.css/src/animations/line-scale-pulse-out';
-@import 'loaders.css/src/animations/line-scale-pulse-out-rapid';
-@import 'loaders.css/src/animations/line-spin-fade-loader';
+@import '@src/dev/loader-css/animations/line-scale.scss';
+@import '@src/dev/loader-css/animations/line-scale-random.scss';
+@import '@src/dev/loader-css/animations/line-scale-pulse-out.scss';
+@import '@src/dev/loader-css/animations/line-scale-pulse-out-rapid.scss';
+@import '@src/dev/loader-css/animations/line-spin-fade-loader.scss';
 
 /**
  * Misc
  */
-@import 'loaders.css/src/animations/triangle-skew-spin';
-@import 'loaders.css/src/animations/square-spin';
-@import 'loaders.css/src/animations/pacman';
-@import 'loaders.css/src/animations/cube-transition';
-@import 'loaders.css/src/animations/semi-circle-spin';
+@import '@src/dev/loader-css/animations/triangle-skew-spin.scss';
+@import '@src/dev/loader-css/animations/square-spin.scss';
+@import '@src/dev/loader-css/animations/pacman.scss';
+@import '@src/dev/loader-css/animations/cube-transition.scss';
+@import '@src/dev/loader-css/animations/semi-circle-spin.scss';
+
