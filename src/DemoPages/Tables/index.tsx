@@ -8,7 +8,7 @@ const DataTableFixedHeader = lazy(() => import("./DataTables/Examples/FixedHeade
 const DataTablePivoting = lazy(() => import("./DataTables/Examples/Pivoting"));
 const RegularTables = lazy(() => import("./RegularTables"));
 
-export const useTablesRoutes = () => {
+export const TablesRoutes = () => {
     return (
         <Route path="tables" element={<CustomSuspense text="Tables" />}>
             <Route path="data-tables" element={<DataTableBasic />} />

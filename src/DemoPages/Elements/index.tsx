@@ -48,7 +48,7 @@ const ScreenVisibilityExamples = lazy(() => import("./ScreenVisibility/"));
 // UTILITIES
 const UtilitiesExamples = lazy(() => import("../Elements/Utilities/"));
 
-export const useElementsRoutes = () => {
+export const ElementsRoutes = () => {
     return (
         <Route path="elements" element={<CustomSuspense text="Elements" />}>
             {/* Buttons */}

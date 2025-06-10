@@ -14,25 +14,28 @@ function MyRouterLink({
     className,
     classNameActive,
     classNameHasActiveChild,
+    // @ts-ignore
     active,
+    // @ts-ignore
     hasActiveChild,
     to,
     externalLink,
     hasSubMenu,
     toggleSubMenu,
+    // @ts-ignore
     activateMe,
     children,
 }: {
     className: string,
     classNameActive: string,
     classNameHasActiveChild: string,
-    active: boolean,
-    hasActiveChild: boolean,
+    active?: boolean,
+    hasActiveChild?: boolean,
     to: string,
     externalLink: boolean,
     hasSubMenu: boolean,
     toggleSubMenu?: () => void,
-    activateMe: () => void,
+    activateMe?: () => void,
     children: React.ReactElement | Array<any>,
 }) {
     const location = useLocation();

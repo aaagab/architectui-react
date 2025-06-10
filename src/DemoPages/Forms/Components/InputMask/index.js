@@ -1,13 +1,17 @@
-import React, {Fragment} from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import React, { createRef, Fragment } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import PageTitle from '../../../../Layout/AppMain/PageTitle';
+import PageTitle from "../../../../Layout/AppMain/PageTitle";
 
 // Examples
 
-import FormInputMaskExample from './Examples/example1';
+import FormInputMaskExample from "./Examples/example1";
 
 class FormInputMask extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ref = createRef();
+    }
 
     render() {
         return (
@@ -18,13 +22,12 @@ class FormInputMask extends React.Component {
                     icon="pe-7s-global icon-gradient bg-happy-itmeo"
                 />
                 <TransitionGroup>
-                    <CSSTransition component="div" classNames="TabsAnimation" appear={true}
-                        timeout={1500} enter={false} exit={false}>
-                        <FormInputMaskExample/>
+                    <CSSTransition nodeRef={this.ref} component="div" classNames="TabsAnimation" appear={true} timeout={1500} enter={false} exit={false}>
+                        <FormInputMaskExample />
                     </CSSTransition>
                 </TransitionGroup>
             </Fragment>
-        )
+        );
     }
 }
 

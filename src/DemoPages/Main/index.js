@@ -1,77 +1,26 @@
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
+import { jsx as _jsx } from "react/jsx-runtime";
+import { useSelector } from "react-redux";
 import cx from "classnames";
-// import { withRouter } from "react-router-dom";
-// import { withRouter } from "react-router-dom";
-import withRouter from "../../dev/withRouter";
-
-import ResizeDetector from "react-resize-detector";
-
+import { useResizeDetector } from "react-resize-detector";
 import AppMain from "../../Layout/AppMain";
-
-class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            closedSmallerSidebar: false,
-        };
-    }
-
-    render() {
-        let {
-            colorScheme,
-            enableFixedHeader,
-            enableFixedSidebar,
-            enableFixedFooter,
-            enableClosedSidebar,
-            closedSmallerSidebar,
-            enableMobileMenu,
-            enablePageTabsAlt,
-        } = this.props;
-
-        return (
-            <ResizeDetector
-                handleWidth
-                render={({ width }) => (
-                    <Fragment>
-                        <div
-                            className={cx(
-                                "app-container app-theme-" + colorScheme,
-                                { "fixed-header": enableFixedHeader },
-                                {
-                                    "fixed-sidebar":
-                                        enableFixedSidebar || width < 1250,
-                                },
-                                { "fixed-footer": enableFixedFooter },
-                                {
-                                    "closed-sidebar":
-                                        enableClosedSidebar || width < 1250,
-                                },
-                                {
-                                    "closed-sidebar-mobile":
-                                        closedSmallerSidebar || width < 1250,
-                                },
-                                { "sidebar-mobile-open": enableMobileMenu },
-                                { "body-tabs-shadow-btn": enablePageTabsAlt }
-                            )}
-                        >
-                            <AppMain />
-                        </div>
-                    </Fragment>
-                )}
-            />
-        );
-    }
-}
-
-const mapStateToProp = (state) => ({
-    colorScheme: state.ThemeOptions.colorScheme,
-    enableFixedHeader: state.ThemeOptions.enableFixedHeader,
-    enableMobileMenu: state.ThemeOptions.enableMobileMenu,
-    enableFixedFooter: state.ThemeOptions.enableFixedFooter,
-    enableFixedSidebar: state.ThemeOptions.enableFixedSidebar,
-    enableClosedSidebar: state.ThemeOptions.enableClosedSidebar,
-    enablePageTabsAlt: state.ThemeOptions.enablePageTabsAlt,
-});
-
-export default withRouter(connect(mapStateToProp)(Main));
+import { useCallback, useEffect } from "react";
+const Main = () => {
+    const o = useSelector(state => state.ThemeOptions);
+    const { width, ref } = useResizeDetector({
+        handleHeight: false,
+        refreshMode: 'debounce',
+        refreshRate: 1000,
+        onResize: useCallback(() => {
+        }, []),
+    });
+    useEffect(() => {
+    }, []);
+    return (_jsx("div", { ref: ref, className: cx("app-container app-theme-" + o.colorScheme, { "fixed-header": o.enableFixedHeader }, {
+            "fixed-sidebar": o.enableFixedSidebar || width && width < 1250,
+        }, { "fixed-footer": o.enableFixedFooter }, {
+            "closed-sidebar": o.enableClosedSidebar || width && width < 1250,
+        }, {
+            "closed-sidebar-mobile": o.closedSmallerSidebar || width && width < 1250,
+        }, { "sidebar-mobile-open": o.enableMobileMenu }, { "body-tabs-shadow-btn": o.enablePageTabsAlt }), children: _jsx(AppMain, {}) }));
+};
+export default Main;

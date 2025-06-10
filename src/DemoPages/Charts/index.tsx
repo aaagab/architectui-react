@@ -9,7 +9,7 @@ const ChartsChartJs = lazy(() => import("./ChartJs/"));
 const ChartsGauges = lazy(() => import("./Gauges/"));
 const ApexCharts = lazy(() => import("./ApexCharts/"));
 
-export const useChartsRoutes = () => (
+export const ChartsRoutes = () => (
   <Route path="charts" element={<CustomSuspense text="Charts" />}>
     <Route path="sparklines-1" element={<ChartsSparklines1 />} />
     <Route path="sparklines-2" element={<ChartsSparklines2 />} />

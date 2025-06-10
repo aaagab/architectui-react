@@ -1,82 +1,23 @@
-import React from "react";
-import { connect } from "react-redux";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useSelector } from "react-redux";
 import cx from "classnames";
-
 import { Button, UncontrolledTooltip } from "reactstrap";
-
 import { toast, Slide } from "react-toastify";
-
 import { faBatteryThreeQuarters } from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-class PageTitle extends React.Component {
-  state = {
-    expZoomIn: false,
-  };
-
-  toggle(name) {
-    this.setState({
-      [name]: !this.state[name],
-      progress: 0.5,
-    });
-  }
-
-  notify22 = () =>
-    (this.toastId = toast("You can add whatever element in this section.", {
-      transition: Slide,
-      closeButton: true,
-      autoClose: 5000,
-      position: "bottom-center",
-      type: "default",
+const PageTitle = ({ heading, icon, subheading }) => {
+    const o = useSelector(state => state.ThemeOptions);
+    const notify22 = () => (toast("You can add whatever element in this section pageTitle.", {
+        transition: Slide,
+        closeButton: true,
+        autoClose: 5000,
+        position: "bottom-center",
+        type: "default",
     }));
-
-  render() {
-    let {
-      enablePageTitleIcon,
-      enablePageTitleSubheading,
-
-      heading,
-      icon,
-      subheading,
-    } = this.props;
-    return (
-      <div className="app-page-title">
-        <div className="page-title-wrapper">
-          <div className="page-title-heading">
-            <div className={cx("page-title-icon bg-happy-fisher", {
-                "d-none": !enablePageTitleIcon,
-              })}>
-              <i className={icon} />
-            </div>
-            <div>
-              {heading}
-              <div className={cx("page-title-subheading", {
-                  "d-none": !enablePageTitleSubheading,
-                })}>
-                {subheading}
-              </div>
-            </div>
-          </div>
-          <div className="page-title-actions">
-            <Button className="btn-pill me-3" onClick={this.notify22} color="success" id="Tooltip-123">
-              <FontAwesomeIcon icon={faBatteryThreeQuarters} />
-            </Button>
-            <UncontrolledTooltip placement="left" target={"Tooltip-123"}>
-              A notification example!
-            </UncontrolledTooltip>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  enablePageTitleIcon: state.ThemeOptions.enablePageTitleIcon,
-  enablePageTitleSubheading: state.ThemeOptions.enablePageTitleSubheading,
-});
-
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageTitle);
+    return (_jsx("div", { className: "app-page-title", children: _jsxs("div", { className: "page-title-wrapper", children: [_jsxs("div", { className: "page-title-heading", children: [_jsx("div", { className: cx("page-title-icon bg-happy-fisher", {
+                                "d-none": !o.enablePageTitleIcon,
+                            }), children: _jsx("i", { className: icon }) }), _jsxs("div", { children: [heading, _jsx("div", { className: cx("page-title-subheading", {
+                                        "d-none": !o.enablePageTitleSubheading,
+                                    }), children: subheading })] })] }), _jsxs("div", { className: "page-title-actions", children: [_jsx(Button, { className: "btn-pill me-3", onClick: notify22, color: "success", id: "Tooltip-123", children: _jsx(FontAwesomeIcon, { icon: faBatteryThreeQuarters }) }), _jsx(UncontrolledTooltip, { placement: "left", target: "Tooltip-123", children: "A notification example!" })] })] }) }));
+};
+export default PageTitle;

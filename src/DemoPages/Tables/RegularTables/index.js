@@ -1,22 +1,17 @@
-import React, {Fragment} from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import {
-    Row, Col,
-    Card, CardBody,
-    CardTitle
-} from 'reactstrap';
+import React, { Fragment, useRef } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
-import PageTitle from '../../../Layout/AppMain/PageTitle';
+import PageTitle from "../../../Layout/AppMain/PageTitle";
 
-import TableExample from './Examples/Table';
-import TableBordered from './Examples/TableBordered';
-import TableBorderless from './Examples/TableBorderless';
-import TableDark from './Examples/TableDark';
-import TableHover from './Examples/TableHover';
-import TableResponsive from './Examples/TableResponsive';
-import TableSizing from './Examples/TableSizing';
-import TableStriped from './Examples/TableStriped';
-
+import TableExample from "./Examples/Table";
+import TableBordered from "./Examples/TableBordered";
+import TableBorderless from "./Examples/TableBorderless";
+import TableDark from "./Examples/TableDark";
+import TableHover from "./Examples/TableHover";
+import TableResponsive from "./Examples/TableResponsive";
+import TableSizing from "./Examples/TableSizing";
+import TableStriped from "./Examples/TableStriped";
 
 const RegularTables = (props) => {
     return (
@@ -27,14 +22,13 @@ const RegularTables = (props) => {
                 icon="pe-7s-drawer icon-gradient bg-happy-itmeo"
             />
             <TransitionGroup>
-                <CSSTransition component="div" classNames="TabsAnimation" appear={true}
-                    timeout={1500} enter={false} exit={false}>
+                <CSSTransition nodeRef={useRef()} component="div" classNames="TabsAnimation" appear={true} timeout={1500} enter={false} exit={false}>
                     <Row>
                         <Col lg="6">
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Simple table</CardTitle>
-                                    <TableExample/>
+                                    <TableExample />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -42,7 +36,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table bordered</CardTitle>
-                                    <TableBordered/>
+                                    <TableBordered />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -50,7 +44,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table without border</CardTitle>
-                                    <TableBorderless/>
+                                    <TableBorderless />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -58,7 +52,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table dark</CardTitle>
-                                    <TableDark/>
+                                    <TableDark />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -66,7 +60,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table with hover</CardTitle>
-                                    <TableHover/>
+                                    <TableHover />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -74,7 +68,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table responsive</CardTitle>
-                                    <TableResponsive/>
+                                    <TableResponsive />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -82,7 +76,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table sizing</CardTitle>
-                                    <TableSizing/>
+                                    <TableSizing />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -90,7 +84,7 @@ const RegularTables = (props) => {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Table striped</CardTitle>
-                                    <TableStriped/>
+                                    <TableStriped />
                                 </CardBody>
                             </Card>
                         </Col>

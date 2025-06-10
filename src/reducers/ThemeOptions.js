@@ -1,118 +1,113 @@
-import sideBar6 from '../assets/utils/images/sidebar/city1.jpg';
-
-export const SET_ENABLE_BACKGROUND_IMAGE = 'THEME_OPTIONS/SET_ENABLE_BACKGROUND_IMAGE';
-
-export const SET_ENABLE_MOBILE_MENU = 'THEME_OPTIONS/SET_ENABLE_MOBILE_MENU';
-export const SET_ENABLE_MOBILE_MENU_SMALL = 'THEME_OPTIONS/SET_ENABLE_MOBILE_MENU_SMALL';
-
-export const SET_ENABLE_FIXED_HEADER = 'THEME_OPTIONS/SET_ENABLE_FIXED_HEADER';
-export const SET_ENABLE_HEADER_SHADOW = 'THEME_OPTIONS/SET_ENABLE_HEADER_SHADOW';
-export const SET_ENABLE_SIDEBAR_SHADOW = 'THEME_OPTIONS/SET_ENABLE_SIDEBAR_SHADOW';
-export const SET_ENABLE_FIXED_SIDEBAR = 'THEME_OPTIONS/SET_ENABLE_FIXED_SIDEBAR';
-export const SET_ENABLE_CLOSED_SIDEBAR = 'THEME_OPTIONS/SET_ENABLE_CLOSED_SIDEBAR';
-export const SET_ENABLE_FIXED_FOOTER = 'THEME_OPTIONS/SET_ENABLE_FIXED_FOOTER';
-
-export const SET_ENABLE_PAGETITLE_ICON = 'THEME_OPTIONS/SET_ENABLE_PAGETITLE_ICON';
-export const SET_ENABLE_PAGETITLE_SUBHEADING = 'THEME_OPTIONS/SET_ENABLE_PAGETITLE_SUBHEADING';
-export const SET_ENABLE_PAGE_TABS_ALT = 'THEME_OPTIONS/SET_ENABLE_PAGE_TABS_ALT';
-
-export const SET_BACKGROUND_IMAGE = 'THEME_OPTIONS/SET_BACKGROUND_IMAGE';
-export const SET_BACKGROUND_COLOR = 'THEME_OPTIONS/SET_BACKGROUND_COLOR';
-export const SET_COLOR_SCHEME = 'THEME_OPTIONS/SET_COLOR_SCHEME';
-export const SET_BACKGROUND_IMAGE_OPACITY = 'THEME_OPTIONS/SET_BACKGROUND_IMAGE_OPACITY';
-
-export const SET_HEADER_BACKGROUND_COLOR = 'THEME_OPTIONS/SET_HEADER_BACKGROUND_COLOR';
-
-
-export const setEnableBackgroundImage = enableBackgroundImage => ({
+import sideBar6 from "../assets/utils/images/sidebar/city1.jpg";
+export const SET_ENABLE_BACKGROUND_IMAGE = "THEME_OPTIONS/SET_ENABLE_BACKGROUND_IMAGE";
+export const SET_ENABLE_MOBILE_MENU = "THEME_OPTIONS/SET_ENABLE_MOBILE_MENU";
+export const SET_ENABLE_MOBILE_MENU_SMALL = "THEME_OPTIONS/SET_ENABLE_MOBILE_MENU_SMALL";
+export const SET_ENABLE_FIXED_HEADER = "THEME_OPTIONS/SET_ENABLE_FIXED_HEADER";
+export const SET_ENABLE_HEADER_SHADOW = "THEME_OPTIONS/SET_ENABLE_HEADER_SHADOW";
+export const SET_ENABLE_SIDEBAR_SHADOW = "THEME_OPTIONS/SET_ENABLE_SIDEBAR_SHADOW";
+export const SET_ENABLE_FIXED_SIDEBAR = "THEME_OPTIONS/SET_ENABLE_FIXED_SIDEBAR";
+export const SET_ENABLE_CLOSED_SIDEBAR = "THEME_OPTIONS/SET_ENABLE_CLOSED_SIDEBAR";
+export const SET_ENABLE_FIXED_FOOTER = "THEME_OPTIONS/SET_ENABLE_FIXED_FOOTER";
+export const SET_ENABLE_PAGETITLE_ICON = "THEME_OPTIONS/SET_ENABLE_PAGETITLE_ICON";
+export const SET_ENABLE_PAGETITLE_SUBHEADING = "THEME_OPTIONS/SET_ENABLE_PAGETITLE_SUBHEADING";
+export const SET_ENABLE_PAGE_TABS_ALT = "THEME_OPTIONS/SET_ENABLE_PAGE_TABS_ALT";
+export const SET_BACKGROUND_IMAGE = "THEME_OPTIONS/SET_BACKGROUND_IMAGE";
+export const SET_BACKGROUND_COLOR = "THEME_OPTIONS/SET_BACKGROUND_COLOR";
+export const SET_COLOR_SCHEME = "THEME_OPTIONS/SET_COLOR_SCHEME";
+export const SET_BACKGROUND_IMAGE_OPACITY = "THEME_OPTIONS/SET_BACKGROUND_IMAGE_OPACITY";
+export const SET_HEADER_BACKGROUND_COLOR = "THEME_OPTIONS/SET_HEADER_BACKGROUND_COLOR";
+export const setEnableBackgroundImage = (enableBackgroundImage) => ({
     type: SET_ENABLE_BACKGROUND_IMAGE,
-    enableBackgroundImage
+    enableBackgroundImage,
 });
-
-export const setEnableFixedHeader = enableFixedHeader => ({
+export const setEnableFixedHeader = (enableFixedHeader) => ({
     type: SET_ENABLE_FIXED_HEADER,
-    enableFixedHeader
+    enableFixedHeader,
 });
-
-export const setEnableHeaderShadow = enableHeaderShadow => ({
+export const setEnableHeaderShadow = (enableHeaderShadow) => ({
     type: SET_ENABLE_HEADER_SHADOW,
-    enableHeaderShadow
+    enableHeaderShadow,
 });
-
-export const setEnableSidebarShadow = enableSidebarShadow => ({
+export const setEnableSidebarShadow = (enableSidebarShadow) => ({
     type: SET_ENABLE_SIDEBAR_SHADOW,
-    enableSidebarShadow
+    enableSidebarShadow,
 });
-
-export const setEnablePageTitleIcon = enablePageTitleIcon => ({
+export const setEnablePageTitleIcon = (enablePageTitleIcon) => ({
     type: SET_ENABLE_PAGETITLE_ICON,
-    enablePageTitleIcon
+    enablePageTitleIcon,
 });
-
-export const setEnablePageTitleSubheading = enablePageTitleSubheading => ({
+export const setEnablePageTitleSubheading = (enablePageTitleSubheading) => ({
     type: SET_ENABLE_PAGETITLE_SUBHEADING,
-    enablePageTitleSubheading
+    enablePageTitleSubheading,
 });
-
-export const setEnablePageTabsAlt = enablePageTabsAlt => ({
+export const setEnablePageTabsAlt = (enablePageTabsAlt) => ({
     type: SET_ENABLE_PAGE_TABS_ALT,
-    enablePageTabsAlt
+    enablePageTabsAlt,
 });
-
-export const setEnableFixedSidebar = enableFixedSidebar => ({
+export const setEnableFixedSidebar = (enableFixedSidebar) => ({
     type: SET_ENABLE_FIXED_SIDEBAR,
-    enableFixedSidebar
+    enableFixedSidebar,
 });
-
-export const setEnableClosedSidebar = enableClosedSidebar => ({
+export const setEnableClosedSidebar = (enableClosedSidebar) => ({
     type: SET_ENABLE_CLOSED_SIDEBAR,
-    enableClosedSidebar
+    enableClosedSidebar,
 });
-
-export const setEnableMobileMenu = enableMobileMenu => ({
+export const setEnableMobileMenu = (enableMobileMenu) => ({
     type: SET_ENABLE_MOBILE_MENU,
-    enableMobileMenu
+    enableMobileMenu,
 });
-
-export const setEnableMobileMenuSmall = enableMobileMenuSmall => ({
+export const setEnableMobileMenuSmall = (enableMobileMenuSmall) => ({
     type: SET_ENABLE_MOBILE_MENU_SMALL,
-    enableMobileMenuSmall
+    enableMobileMenuSmall,
 });
-
-export const setEnableFixedFooter = enableFixedFooter => ({
+export const setEnableFixedFooter = (enableFixedFooter) => ({
     type: SET_ENABLE_FIXED_FOOTER,
-    enableFixedFooter
+    enableFixedFooter,
 });
-
-export const setBackgroundColor = backgroundColor => ({
+export const setBackgroundColor = (backgroundColor) => ({
     type: SET_BACKGROUND_COLOR,
-    backgroundColor
+    backgroundColor,
 });
-
-export const setHeaderBackgroundColor = headerBackgroundColor => ({
+export const setHeaderBackgroundColor = (headerBackgroundColor) => ({
     type: SET_HEADER_BACKGROUND_COLOR,
-    headerBackgroundColor
+    headerBackgroundColor,
 });
-
-export const setColorScheme = colorScheme => ({
+export const setColorScheme = (colorScheme) => ({
     type: SET_COLOR_SCHEME,
-    colorScheme
+    colorScheme,
 });
-
-export const setBackgroundImageOpacity = backgroundImageOpacity => ({
+export const setBackgroundImageOpacity = (backgroundImageOpacity) => ({
     type: SET_BACKGROUND_IMAGE_OPACITY,
-    backgroundImageOpacity
+    backgroundImageOpacity,
 });
-
-export const setBackgroundImage = backgroundImage  => ({
+export const setBackgroundImage = (backgroundImage) => ({
     type: SET_BACKGROUND_IMAGE,
-    backgroundImage
+    backgroundImage,
 });
-
-export default function reducer(state = {
-    backgroundColor: '',
-    headerBackgroundColor: '',
-    enableMobileMenuSmall: '',
+export const ThemeActions = {
+    setEnableBackgroundImage: setEnableBackgroundImage,
+    setEnableFixedHeader: setEnableFixedHeader,
+    setEnableHeaderShadow: setEnableHeaderShadow,
+    setEnableSidebarShadow: setEnableSidebarShadow,
+    setEnablePageTitleIcon: setEnablePageTitleIcon,
+    setEnablePageTitleSubheading: setEnablePageTitleSubheading,
+    setEnablePageTabsAlt: setEnablePageTabsAlt,
+    setEnableFixedSidebar: setEnableFixedSidebar,
+    setEnableClosedSidebar: setEnableClosedSidebar,
+    setEnableMobileMenu: setEnableMobileMenu,
+    setEnableMobileMenuSmall: setEnableMobileMenuSmall,
+    setEnableFixedFooter: setEnableFixedFooter,
+    setBackgroundColor: setBackgroundColor,
+    setHeaderBackgroundColor: setHeaderBackgroundColor,
+    setColorScheme: setColorScheme,
+    setBackgroundImageOpacity: setBackgroundImageOpacity,
+    setBackgroundImage: setBackgroundImage,
+};
+const defaultThemeOptions = {
+    backgroundColor: "",
+    headerBackgroundColor: "",
+    enableMobileMenu: "",
+    enableMobileMenuSmall: "",
     enableBackgroundImage: false,
     enableClosedSidebar: false,
     enableFixedHeader: true,
@@ -120,116 +115,102 @@ export default function reducer(state = {
     enableSidebarShadow: true,
     enableFixedFooter: true,
     enableFixedSidebar: true,
-    colorScheme: 'white',
+    colorScheme: "white",
     backgroundImage: sideBar6,
-    backgroundImageOpacity: 'opacity-06',
+    backgroundImageOpacity: "opacity-06",
     enablePageTitleIcon: true,
     enablePageTitleSubheading: true,
     enablePageTabsAlt: true,
-}, action) {
+    closedSmallerSidebar: false,
+};
+export default function reducer(state = defaultThemeOptions, action) {
     switch (action.type) {
         case SET_ENABLE_BACKGROUND_IMAGE:
             return {
                 ...state,
-                enableBackgroundImage: action.enableBackgroundImage
+                enableBackgroundImage: action.enableBackgroundImage,
             };
-
         case SET_ENABLE_FIXED_HEADER:
             return {
                 ...state,
-                enableFixedHeader: action.enableFixedHeader
+                enableFixedHeader: action.enableFixedHeader,
             };
-
         case SET_ENABLE_HEADER_SHADOW:
             return {
                 ...state,
-                enableHeaderShadow: action.enableHeaderShadow
+                enableHeaderShadow: action.enableHeaderShadow,
             };
-
         case SET_ENABLE_SIDEBAR_SHADOW:
             return {
                 ...state,
-                enableSidebarShadow: action.enableSidebarShadow
+                enableSidebarShadow: action.enableSidebarShadow,
             };
-
         case SET_ENABLE_PAGETITLE_ICON:
             return {
                 ...state,
-                enablePageTitleIcon: action.enablePageTitleIcon
+                enablePageTitleIcon: action.enablePageTitleIcon,
             };
-
         case SET_ENABLE_PAGETITLE_SUBHEADING:
             return {
                 ...state,
-                enablePageTitleSubheading: action.enablePageTitleSubheading
+                enablePageTitleSubheading: action.enablePageTitleSubheading,
             };
-
         case SET_ENABLE_PAGE_TABS_ALT:
             return {
                 ...state,
-                enablePageTabsAlt: action.enablePageTabsAlt
+                enablePageTabsAlt: action.enablePageTabsAlt,
             };
-
         case SET_ENABLE_FIXED_SIDEBAR:
             return {
                 ...state,
-                enableFixedSidebar: action.enableFixedSidebar
+                enableFixedSidebar: action.enableFixedSidebar,
             };
-
         case SET_ENABLE_MOBILE_MENU:
             return {
                 ...state,
-                enableMobileMenu: action.enableMobileMenu
+                enableMobileMenu: action.enableMobileMenu,
             };
-
         case SET_ENABLE_MOBILE_MENU_SMALL:
             return {
                 ...state,
-                enableMobileMenuSmall: action.enableMobileMenuSmall
+                enableMobileMenuSmall: action.enableMobileMenuSmall,
             };
-
         case SET_ENABLE_CLOSED_SIDEBAR:
             return {
                 ...state,
-                enableClosedSidebar: action.enableClosedSidebar
+                enableClosedSidebar: action.enableClosedSidebar,
             };
-
         case SET_ENABLE_FIXED_FOOTER:
             return {
                 ...state,
-                enableFixedFooter: action.enableFixedFooter
+                enableFixedFooter: action.enableFixedFooter,
             };
-
         case SET_BACKGROUND_COLOR:
             return {
                 ...state,
-                backgroundColor: action.backgroundColor
+                backgroundColor: action.backgroundColor,
             };
-
         case SET_HEADER_BACKGROUND_COLOR:
             return {
                 ...state,
-                headerBackgroundColor: action.headerBackgroundColor
+                headerBackgroundColor: action.headerBackgroundColor,
             };
-
         case SET_COLOR_SCHEME:
             return {
                 ...state,
-                colorScheme: action.colorScheme
+                colorScheme: action.colorScheme,
             };
-
         case SET_BACKGROUND_IMAGE:
             return {
                 ...state,
-                backgroundImage: action.backgroundImage
+                backgroundImage: action.backgroundImage,
             };
-
         case SET_BACKGROUND_IMAGE_OPACITY:
             return {
                 ...state,
-                backgroundImageOpacity: action.backgroundImageOpacity
+                backgroundImageOpacity: action.backgroundImageOpacity,
             };
-            default:
+        default:
     }
     return state;
 }

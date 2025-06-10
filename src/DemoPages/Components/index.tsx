@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 import { lazy } from "react";
 import CustomSuspense from "../../dev/customSuspense";
@@ -41,7 +40,7 @@ const PaginationExamples = lazy(() => import("./Pagination"));
 // Calendar
 const CalendarExample = lazy(() => import("./Calendar"));
 
-export const useComponentsRoutes = () => {
+export const ComponentsRoutes = () => {
     return (
         <Route path="components" element={<CustomSuspense text="Components" />}>
             {/* Tabs */}
