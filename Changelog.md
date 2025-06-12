@@ -1,5 +1,9 @@
 # Changelog
 
+## [4.1.2] - 2025-06-12
+- fixed issue with react-metismenu-router-link
+- removed extra files generated during TypeScript build
+
 ## [4.1.1] - 2025-06-10
 - fixed version in package.json
 

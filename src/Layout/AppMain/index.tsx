@@ -14,6 +14,8 @@ import { DashboardWidgetsRoutes } from "../../DemoPages/Widgets";
 import PagesRoutes from "../../DemoPages/UserPages";
 import { ApplicationsRoutes } from "../../DemoPages/Applications";
 
+const elem = () => <><div>Home</div></>;
+
 const AppMain = () => {
     return (
         <>
@@ -30,7 +32,7 @@ const AppMain = () => {
                     {PagesRoutes()}
                     {ApplicationsRoutes()}
                 </Route>
-            </Routes>
+            </Routes >
             <ToastContainer />
         </>
     );
