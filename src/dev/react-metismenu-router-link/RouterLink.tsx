@@ -5,7 +5,7 @@
  * Refactored by Gabriel Auger For React Router v7 and TypeScript on 06/03/2025
  */
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { useLocation } from 'react-router-dom';
@@ -42,12 +42,12 @@ function MyRouterLink({
     const ref = useRef<HTMLAnchorElement>(null);
 
     useEffect(() => {
+        var root = ref.current?.parentElement?.parentElement?.parentElement;
         if ((location.pathname || "/") === to) {
             // isactive
             if (ref.current) {
                 ref.current.classList.add(classNameActive);
             }
-            var root = ref.current?.parentElement?.parentElement?.parentElement;
             if (root) {
                 var a = root.firstElementChild;
                 if (a?.tagName === "A" && a.classList.contains("metismenu-link")) {
@@ -60,12 +60,26 @@ function MyRouterLink({
                     }
                 }
             }
+        } else {
+            if (root) {
+                var ul = root.lastElementChild;
+                if (ul?.tagName === "UL" && ul.classList.contains("metismenu-container")) {
+                    if (ul.classList.contains("visible") === true) {
+                        var a = root.firstElementChild;
+                        if (a?.tagName === "A" && a.classList.contains("metismenu-link")) {
+                            if (a.classList.contains(classNameHasActiveChild) === false) {
+                                ul.classList.remove("visible");
+                            }
+                        }
+                    }
+                }
+            }
         }
 
     }, [location])
     return hasSubMenu || externalLink ? (
         <a
-            key={location.pathname}
+            key={`${location.pathname}`}
             ref={ref}
             className={classnames(className)}
             target={externalLink ? "_blank" : undefined}
@@ -76,7 +90,7 @@ function MyRouterLink({
         </a>
     ) : (
         <Link
-            key={location.pathname}
+            key={`${location.pathname}`}
             ref={ref}
             className={classnames(className)}
             to={to}
